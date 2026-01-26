@@ -1,6 +1,24 @@
 @WebApi_HostAddress = http://localhost:5099
 
-GET {{WebApi_HostAddress}}/weatherforecast/
+### Create Brand - BMW
+POST {{WebApi_HostAddress}}/api/brands
+Content-Type: application/json
+
+{
+  "name": "BMW"
+}
+
+###
+
+### Get All Brands (Paginated)
+GET {{WebApi_HostAddress}}/api/brands?PageIndex=0&PageSize=10
 Accept: application/json
 
 ###
+
+### Get Brand By Id (Replace GUID with actual Id from Create response)
+GET {{WebApi_HostAddress}}/api/brands/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+###
+
