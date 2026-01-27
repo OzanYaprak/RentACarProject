@@ -10,6 +10,26 @@ Content-Type: application/json
 
 ###
 
+### Create Brand - Mercedes
+POST {{WebApi_HostAddress}}/api/brands
+Content-Type: application/json
+
+{
+  "name": "Mercedes"
+}
+
+###
+
+### Create Brand - Audi
+POST {{WebApi_HostAddress}}/api/brands
+Content-Type: application/json
+
+{
+  "name": "Audi"
+}
+
+###
+
 ### Get All Brands (Paginated)
 GET {{WebApi_HostAddress}}/api/brands?PageIndex=0&PageSize=10
 Accept: application/json
@@ -19,6 +39,17 @@ Accept: application/json
 ### Get Brand By Id (Replace GUID with actual Id from Create response)
 GET {{WebApi_HostAddress}}/api/brands/00000000-0000-0000-0000-000000000000
 Accept: application/json
+
+###
+
+### Update Brand (Replace GUID and provide new name)
+PUT {{WebApi_HostAddress}}/api/brands
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "BMW Updated"
+}
 
 ###
 
