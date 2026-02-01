@@ -1,6 +1,11 @@
 @WebApi_HostAddress = http://localhost:5099
 
-### Create Brand - BMW
+#############################################
+# BRANDS CONTROLLER ENDPOINTS
+#############################################
+
+### 1. Create Brand - POST /api/brands
+# Creates a new brand with the specified name
 POST {{WebApi_HostAddress}}/api/brands
 Content-Type: application/json
 
@@ -10,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-### Create Brand - Mercedes
+### 2. Create Brand - Mercedes
 POST {{WebApi_HostAddress}}/api/brands
 Content-Type: application/json
 
@@ -20,7 +25,7 @@ Content-Type: application/json
 
 ###
 
-### Create Brand - Audi
+### 3. Create Brand - Audi
 POST {{WebApi_HostAddress}}/api/brands
 Content-Type: application/json
 
@@ -30,19 +35,25 @@ Content-Type: application/json
 
 ###
 
-### Get All Brands (Paginated)
+### 4. Get List - GET /api/brands
+# Gets paginated list of all brands
+# Parameters: PageIndex (default: 0), PageSize (default: 10)
 GET {{WebApi_HostAddress}}/api/brands?PageIndex=0&PageSize=10
 Accept: application/json
 
 ###
 
-### Get Brand By Id (Replace GUID with actual Id from Create response)
+### 5. Get By Id - GET /api/brands/{id}
+# Gets a single brand by its Id
+# Replace the GUID below with an actual brand Id from the Create response
 GET {{WebApi_HostAddress}}/api/brands/00000000-0000-0000-0000-000000000000
 Accept: application/json
 
 ###
 
-### Update Brand (Replace GUID and provide new name)
+### 6. Update Brand - PUT /api/brands
+# Updates an existing brand's information
+# Replace the GUID with an actual brand Id and provide the new name
 PUT {{WebApi_HostAddress}}/api/brands
 Content-Type: application/json
 
@@ -50,6 +61,14 @@ Content-Type: application/json
   "id": "00000000-0000-0000-0000-000000000000",
   "name": "BMW Updated"
 }
+
+###
+
+### 7. Delete Brand - DELETE /api/brands/{id}
+# Deletes a brand by its Id (soft delete)
+# Replace the GUID below with an actual brand Id
+DELETE {{WebApi_HostAddress}}/api/brands/00000000-0000-0000-0000-000000000000
+Accept: application/json
 
 ###
 
