@@ -2,12 +2,12 @@
 
 namespace Domain.Entities;
 
-public class Brand : Entity<Guid>
+public class Transmission : Entity<Guid>
 {
     #region Constructors
 
-    public Brand() { Models = new HashSet<Model>(); }
-    public Brand(Guid id, string name) : this()
+    public Transmission() { Models = new HashSet<Model>(); }
+    public Transmission(Guid id, string name) : this()
     {
         Id = id;
         Name = name;
@@ -17,9 +17,9 @@ public class Brand : Entity<Guid>
 
     #region Properties
 
-    public string Name { get; set; } = null!;
+    public string Name { get; set; } = String.Empty;
 
-    #endregion 
+    #endregion
 
     #region Navigation Properties
 
