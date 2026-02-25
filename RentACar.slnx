@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path=".github/copilot-instructions.md" />
   </Folder>
   <Project Path="Application/Application.csproj" Id="2da64c2e-181b-47fc-85c2-6bf5fbf63f89" />
   <Project Path="Domain/Domain.csproj" Id="d0e8f75b-590c-4379-8cce-0c9d283c4f13" />
