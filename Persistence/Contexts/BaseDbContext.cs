@@ -15,7 +15,13 @@ public class BaseDbContext : DbContext
         _configuration = configuration;
         Database.EnsureCreated();
     }
+
     public DbSet<Brand> Brands { get; set;  } = null!;
+    public DbSet<Car> Cars { get; set;  } = null!;
+    public DbSet<Fuel> Fuels { get; set;  } = null!;
+    public DbSet<Model> Models { get; set;  } = null!;
+    public DbSet<Transmission> Transmissions { get; set;  } = null!;
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
