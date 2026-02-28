@@ -11,7 +11,9 @@ public static class PersistenceServiceRegistrations
 {
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<BaseDbContext>(options => options.UseInMemoryDatabase("CleanArchitecture"));
+        //services.AddDbContext<BaseDbContext>(options => options.UseInMemoryDatabase("CleanArchitecture"));
+        services.AddDbContext<BaseDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        
         services.AddScoped<IBrandRepository, BrandRepository>();
         return services;
     }

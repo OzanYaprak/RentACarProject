@@ -6,7 +6,7 @@ public class Model : Entity<Guid>
 {
     #region Constructors
 
-    public Model(Guid id, int brandId, int fuelId, int transmissionId, string name, decimal dailyPrice, string imageUrl) : this()
+    public Model(Guid id, Guid brandId, Guid fuelId, Guid transmissionId, string name, decimal dailyPrice, string imageUrl) : this()
     {
         BrandId = brandId;
         FuelId = fuelId;
@@ -25,9 +25,9 @@ public class Model : Entity<Guid>
     
     #region Properties
 
-    public int BrandId { get; set; }
-    public int FuelId { get; set; }
-    public int TransmissionId { get; set; }
+    public Guid BrandId { get; set; }
+    public Guid FuelId { get; set; }
+    public Guid TransmissionId { get; set; }
     public string Name { get; set; } = String.Empty;
     public decimal DailyPrice { get; set; }
     public string ImageUrl { get; set; } = String.Empty;

@@ -13,7 +13,10 @@ public class BaseDbContext : DbContext
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration): base(dbContextOptions)
     {
         _configuration = configuration;
-        Database.EnsureCreated();
+
+        /// • EnsureDeleted() + EnsureCreated() ikilisi yalnızca birim testlerinde veya prototip geliştirmede kullanılır.
+        /// • EnsureCreated() Tabloları migration olmadan direkt oluşturur. • EnsureDeleted(): Veritabanını siler.
+        //Database.EnsureCreated(); 
     }
 
     public DbSet<Brand> Brands { get; set;  } = null!;
