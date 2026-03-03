@@ -1,4 +1,5 @@
 using Application;
+using Core.CrossCuttingConcerns.Exceptions.Extensions;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+}
+
+if (app.Environment.IsProduction()) // Üretim ortamýnda özel hata yakalama middleware'ini ekle
+{ 
+    app.ConfigureCustomExceptionMiddleware(); // Özel hata yakalama middleware'ini ekle
 }
 
 app.UseHttpsRedirection();
