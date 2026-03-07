@@ -19,8 +19,13 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-if (app.Environment.IsProduction()) // Üretim ortamýnda özel hata yakalama middleware'ini ekle
-{ 
+//if (app.Environment.IsProduction()) // Üretim ortamýnda özel hata yakalama middleware'ini ekle
+//{ 
+//    app.ConfigureCustomExceptionMiddleware(); // Özel hata yakalama middleware'ini ekle
+//}
+
+if (app.Environment.IsDevelopment()) // Geliþtirme ortamýnda özel hata yakalama middleware'ini ekle
+{
     app.ConfigureCustomExceptionMiddleware(); // Özel hata yakalama middleware'ini ekle
 }
 
