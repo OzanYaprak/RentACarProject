@@ -1,4 +1,5 @@
-﻿using Core.Application.Pipelines.Transaction;
+﻿using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Transaction;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
 using FluentValidation;
@@ -16,10 +17,12 @@ public static class ApplicationServiceRegistrations
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             cfg.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
             cfg.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
+            cfg.AddOpenBehavior(typeof(CachingBehavior<,>));
         });
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-        services.AddSubClassesOfType(Assembly.GetExecutingAssembly(),typeof(BaseBusinessRules));
+        services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddMemoryCache();
 
         return services;
     }
