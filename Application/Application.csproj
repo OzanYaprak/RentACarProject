@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Models\Commands\" />
-    <Folder Include="Features\Models\Constants\" />
-    <Folder Include="Features\Models\Rules\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
@@ -44,6 +38,12 @@
     <Reference Include="Core.Persistence">
       <HintPath>..\..\RentACar_Core.Packages\Core.Persistence\bin\Debug\net10.0\Core.Persistence.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Models\Constants\" />
+    <Folder Include="Features\Models\Commands\" />
+    <Folder Include="Features\Models\Rules\" />
   </ItemGroup>
 
 </Project>
