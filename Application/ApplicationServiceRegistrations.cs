@@ -19,7 +19,7 @@ public static class ApplicationServiceRegistrations
             cfg.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
             cfg.AddOpenBehavior(typeof(CachingBehavior<,>));
         });
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(_ => { }, typeof(ApplicationServiceRegistrations));
         services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddMemoryCache();

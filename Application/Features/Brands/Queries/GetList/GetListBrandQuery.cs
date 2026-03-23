@@ -12,5 +12,5 @@ public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDT
 
     public string CacheKey { get { return $"brands_list_{PageRequest.PageIndex}_{PageRequest.PageSize}"; } }
     public bool BypassCache { get; }
-    public TimeSpan? SlidingExpirationTime { get; }
+    public int SlidingExpirationTime { get; }
 }

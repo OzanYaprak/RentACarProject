@@ -7,7 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationServices(); // Application katmanýndaki servisleri ekle // Örneðin MediatR veya Diðer servisler
 builder.Services.AddPersistenceServices(builder.Configuration); // Persistence katmanýndaki servisleri ekle // Örneðin DbContext ve Repositoryler
-builder.Services.AddDistributedMemoryCache(); // Bellek tabanlý daðýtýk önbellek hizmetini ekle // In-memory cache kullanarak önbellekleme yapabilmek için
+
+//builder.Services.AddDistributedMemoryCache(); // Bellek tabanlý daðýtýk önbellek hizmetini ekle // In-memory cache kullanarak önbellekleme yapabilmek için
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis"); // Redis baðlantý dizesini yapýlandýrmadan al
+    options.InstanceName = "MyApp_RedisCache"; // Redis önbellek örneði için bir önek belirle
+});
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
